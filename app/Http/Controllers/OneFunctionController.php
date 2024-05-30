@@ -65,6 +65,6 @@ class OneFunctionController extends Controller
         $count2 = $this->countUnique(3,55);
         $count3 = $this->countUnique(9,43);
 
-        echo "\n"."Уникальные значения 1-15:". " " .$count ."\n","Уникальные значения 3-55:" . " " .$count2 ."\n", "Уникальные значения 9-43:" . " " .$count3;
+        echo "Уникальные значения 1-15:". " " .$count ."\n","Уникальные значения 3-55:" . " " .$count2 ."\n", "Уникальные значения 9-43:" . " " .$count3;
     }
 }

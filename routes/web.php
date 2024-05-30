@@ -13,4 +13,4 @@ Route::get('/arrays', [ArraysController::class, 'arrays']);
 Route::get('/search', [SearchController::class, 'dataSearch']);
 Route::get('/onefunction', [OneFunctionController::class, 'handlerData']);
 Route::get('/onefunction/test', [OneFunctionController::class, 'testCountUnique']);
-Route::get('/store', [ValidationController::class, 'validateRequest']);
+Route::get('/validate', [ValidationController::class, 'validateRequest']);

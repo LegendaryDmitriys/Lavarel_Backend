@@ -40,7 +40,7 @@ class SearchController extends Controller
 
         $seacrhRes = $this -> search($data, 'name5', 100);
 
-        dump($seacrhRes ? 'Категория найдена: ' . print_r($seacrhRes, true) : 'Категория не найдена.');
+        dump($seacrhRes ? 'Найдено : ' . print_r($seacrhRes, true) : 'Категория не найдена.');
 
     }
 

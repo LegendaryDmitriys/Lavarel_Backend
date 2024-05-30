@@ -16,8 +16,8 @@ class AgeRange implements Rule
      */
     public function passes($attribute, $value)
     {
-       $dateOfBirth = Carbon::createFromFormat('d/m/Y', $value);
-       $age = $dateOfBirth->diffInYears(Carbon::now());
+       $dateBirth = Carbon::createFromFormat('d/m/Y', $value);
+       $age = $dateBirth->diffInYears(Carbon::now());
 
        return $age > 15 && $age < 67;
 

@@ -25,7 +25,7 @@ class ValidationController extends Controller
             'came_from' => 'string|in:site,city,tv,others',
            'date_birth' => ['required', 'date_format:d/m/Y', new AgeRange()],
          ], [
-             'email.required' => 'Поле электронной почты обязательно для заполнения.',
+            'email.required' => 'Поле электронной почты обязательно для заполнения.',
             'email.email' => 'Поле электронной почты должно содержать действительный адрес электронной почты.',
             'email.min' => 'Электронная почта должна быть длиннее пяти символов.',
             'password.required' => 'Поле пароля обязательно для заполнения.',
