@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class ArraysController extends Controller
 {
 
-    public function Arrays(){
+    public function arrays(){
         $data = [
             'category' => [
                 'one' => [
