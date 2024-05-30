@@ -450,7 +450,7 @@ class ValidationController extends Controller
             'phone_number' => 'digits_between:6,15',
             'name' => 'required|string|regex:/^[a-zA-Zа-яА-ЯёЁ]+$/|max:30',
             'came_from' => 'string|in:site,city,tv,others',
-           'date_birth' => ['required', 'date_format:d/m/Y', new AgeRange()],
+            'date_birth' => ['required', 'date_format:d/m/Y', new AgeRange()],
          ], [
             'email.required' => 'Поле электронной почты обязательно для заполнения.',
             'email.email' => 'Поле электронной почты должно содержать действительный адрес электронной почты.',
@@ -487,8 +487,52 @@ class ValidationController extends Controller
 
     }
 }
+```
+
+Для поля date_birth использовал кастомное правило валидации для проверки возраста:
+
+```php
+<?php
+
+namespace App\Rules;
+
+use Illuminate\Contracts\Validation\Rule;
+use Carbon\Carbon;
+
+class AgeRange implements Rule
+{
+     /**
+     * Determine if the validation rule passes.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @return bool
+     */
+    public function passes($attribute, $value)
+    {
+       $dateBirth = Carbon::createFromFormat('d/m/Y', $value);
+       $age = $dateBirth->diffInYears(Carbon::now());
+
+       return $age > 15 && $age < 67;
+
+    }
+
+      /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+
+    public function message()
+    {
+        return 'Возраст должен быть больше 15 и меньше 67 лет.';
+    }
+
+}
 
 ```
+
+
 Ответ если данные указаны правильно:
 ```json
 {
